@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "ft2VDHF4Z+RZkJf9G5wm6zr8ZNtIL4skgArV2tF+kc4=",
+  "Source": "SheepManager.WebAPI",
+  "BasePath": "_content/SheepManager.WebAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

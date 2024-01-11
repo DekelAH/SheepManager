@@ -3,7 +3,7 @@ using SheepManager.Core.Domain.Entities;
 
 namespace SheepManager.Infrastructure.DatabaseContext
 {
-    public class ApplicationDbContext : DbContext
+    public class SheepManagerDbContext : DbContext
     {
         #region Properties
 
@@ -16,14 +16,9 @@ namespace SheepManager.Infrastructure.DatabaseContext
 
         #region Ctor
 
-        public ApplicationDbContext(DbContextOptions options) : base(options)
+        public SheepManagerDbContext(DbContextOptions options) : base(options)
         {
 
-        }
-
-        public ApplicationDbContext()
-        {
-            
         }
 
         #endregion

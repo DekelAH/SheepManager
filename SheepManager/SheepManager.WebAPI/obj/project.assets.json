@@ -1053,6 +1053,35 @@
             "rid": "win"
           }
         }
+      },
+      "SheepManager.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.14",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.14"
+        },
+        "compile": {
+          "bin/placeholder/SheepManager.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SheepManager.Core.dll": {}
+        }
+      },
+      "SheepManager.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.14",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.14",
+          "SheepManager.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SheepManager.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SheepManager.Infrastructure.dll": {}
+        }
       }
     }
   },
@@ -2875,13 +2904,25 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "SheepManager.Core/1.0.0": {
+      "type": "project",
+      "path": "../SheepManager.Core/SheepManager.Core.csproj",
+      "msbuildProject": "../SheepManager.Core/SheepManager.Core.csproj"
+    },
+    "SheepManager.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../SheepManager.Infrastructure/SheepManager.Infrastructure.csproj",
+      "msbuildProject": "../SheepManager.Infrastructure/SheepManager.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "Microsoft.EntityFrameworkCore >= 7.0.14",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.14",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.14",
-      "Microsoft.EntityFrameworkCore.Tools >= 7.0.14"
+      "Microsoft.EntityFrameworkCore.Tools >= 7.0.14",
+      "SheepManager.Infrastructure >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -2910,7 +2951,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Programming\\Github Projects\\SheepManager\\SheepManager\\SheepManager.Infrastructure\\SheepManager.Infrastructure.csproj": {
+              "projectPath": "D:\\Programming\\Github Projects\\SheepManager\\SheepManager\\SheepManager.Infrastructure\\SheepManager.Infrastructure.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -2923,6 +2968,10 @@
       "net7.0": {
         "targetAlias": "net7.0",
         "dependencies": {
+          "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[7.0.14, )"
+          },
           "Microsoft.EntityFrameworkCore.Design": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",

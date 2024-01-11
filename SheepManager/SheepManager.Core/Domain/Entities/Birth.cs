@@ -12,9 +12,9 @@ namespace SheepManager.Core.Domain.Entities
 
         public Guid BirthId { get; set; }
         public DateTime GivingBirthDate { get; set; }
-        public int BornQuantity { get; set; }
+        public uint BornQuantity { get; set; }
         public bool IsDroped { get; set; }
-        public int DescendantMortality { get; set; }
+        public uint DescendantMortality { get; set; }
 
         #endregion
     }

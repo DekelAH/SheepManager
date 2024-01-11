@@ -68,3 +68,7 @@ D:\Programming\Github Projects\SheepManager\SheepManager\SheepManager.WebAPI\bin
 D:\Programming\Github Projects\SheepManager\SheepManager\SheepManager.WebAPI\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 D:\Programming\Github Projects\SheepManager\SheepManager\SheepManager.WebAPI\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 D:\Programming\Github Projects\SheepManager\SheepManager\SheepManager.WebAPI\obj\Debug\net7.0\SheepManager.WebAPI.csproj.CopyComplete
+D:\Programming\Github Projects\SheepManager\SheepManager\SheepManager.WebAPI\bin\Debug\net7.0\SheepManager.Core.dll
+D:\Programming\Github Projects\SheepManager\SheepManager\SheepManager.WebAPI\bin\Debug\net7.0\SheepManager.Infrastructure.dll
+D:\Programming\Github Projects\SheepManager\SheepManager\SheepManager.WebAPI\bin\Debug\net7.0\SheepManager.Infrastructure.pdb
+D:\Programming\Github Projects\SheepManager\SheepManager\SheepManager.WebAPI\bin\Debug\net7.0\SheepManager.Core.pdb

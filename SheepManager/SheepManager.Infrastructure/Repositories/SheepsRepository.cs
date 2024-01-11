@@ -8,15 +8,15 @@ namespace SheepManager.Infrastructure.Repositories
     {
         #region Fields
 
-        private readonly ApplicationDbContext _applicationDbContext;
+        private readonly SheepManagerDbContext _sheepManagerDbContext;
 
         #endregion
 
         #region Ctor
 
-        public SheepsRepository(ApplicationDbContext applicationDbContext)
+        public SheepsRepository(SheepManagerDbContext sheepManagerDbContext)
         {
-            _applicationDbContext = applicationDbContext;
+            _sheepManagerDbContext = sheepManagerDbContext;
         }
 
         #endregion

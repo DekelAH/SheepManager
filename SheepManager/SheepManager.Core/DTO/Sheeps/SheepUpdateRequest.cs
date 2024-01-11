@@ -10,7 +10,7 @@ namespace SheepManager.Core.DTO.Sheeps
         public Guid SheepId { get; set; }
 
         [Required(ErrorMessage = "Tag Number can't be blank")]
-        public int TagNumber { get; set; }
+        public uint TagNumber { get; set; }
 
         [Required(ErrorMessage = "Weight can't be blank")]
         [Range(0.0, double.MaxValue, ErrorMessage = "Weight can't be lower than 0")]
@@ -24,8 +24,8 @@ namespace SheepManager.Core.DTO.Sheeps
         [Required(ErrorMessage = "Birthdate can't be blank")]
         public DateTime Birthdate { get; set; }
 
-        public int MotherTagNumber { get; set; }
-        public int FatherTagNumber { get; set; }
+        public uint MotherTagNumber { get; set; }
+        public uint FatherTagNumber { get; set; }
         public bool IsDead { get; set; }
         public bool IsSold { get; set; }
         public bool IsPregnant { get; set; }

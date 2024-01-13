@@ -22,5 +22,30 @@ namespace SheepManager.Infrastructure.DatabaseContext
         }
 
         #endregion
+
+        #region SP Methods
+
+        public List<Sheep> Sp_GetAllSheeps()
+        {
+            return Sheeps.FromSqlRaw("EXECUTE [dbo].[GetAllSheeps]").ToList();
+        }
+
+        public Sheep Sp_GetSheepById(Guid sheepId)
+        {
+            return null;
+            //return Sheeps.FromSqlRaw("EXECUTE [dbo].[GetSheepById]");
+        }
+
+        public Sheep Sp_AddSheep(Sheep newSheep)
+        {
+            return newSheep;
+        }
+
+        public Sheep Sp_UpdateSheep(Sheep sheepToUpdate)
+        {
+            return sheepToUpdate;
+        }
+
+        #endregion
     }
 }

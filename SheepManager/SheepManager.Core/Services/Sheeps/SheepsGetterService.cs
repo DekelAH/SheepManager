@@ -28,8 +28,9 @@ namespace SheepManager.Core.Services.Sheeps
             var allSheeps = await _sheepsRepository.GetAllSheeps();
             if (allSheeps.Count <= 0)
             {
-                return null;
+                throw new NullReferenceException(nameof(allSheeps));
             }
+
             var allSheepsResponse = allSheeps.Select(s => s.ToSheepResponse()).ToList();
             return allSheepsResponse;
         }
@@ -37,11 +38,9 @@ namespace SheepManager.Core.Services.Sheeps
         public async Task<SheepResponse?> GetSheepById(Guid id)
         {
             var matchingSheep = await _sheepsRepository.GetSheepById(id);
-            if (matchingSheep == null)
-            {
-                return null;
-            }
-            return matchingSheep.ToSheepResponse();
+            return matchingSheep == null
+                ? throw new NullReferenceException("Sheep wasn't found, check id input")
+                : matchingSheep.ToSheepResponse();
         }
 
         #endregion

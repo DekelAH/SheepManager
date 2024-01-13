@@ -23,9 +23,9 @@ namespace SheepManager.Infrastructure.Repositories
 
         #region Methods
 
-        public async Task<List<Sheep>> GetAllSheeps()
+        public Task<List<Sheep>> GetAllSheeps()
         {
-            throw new NotImplementedException();
+            return Task.FromResult(_sheepManagerDbContext.Sp_GetAllSheeps());
         }
 
         public async Task<Sheep?> GetSheepById(Guid id)

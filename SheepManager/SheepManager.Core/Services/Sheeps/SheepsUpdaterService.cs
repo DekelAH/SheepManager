@@ -27,7 +27,6 @@ namespace SheepManager.Core.Services.Sheeps
         {
             var sheep = sheepUpdateRequest.ToSheep();
             var updatedSheep = await _sheepsRepository.UpdateSheep(sheep);
-            updatedSheep.SheepId = Guid.NewGuid();
             var sheepResponse = updatedSheep.ToSheepResponse();
             return sheepResponse;
         }

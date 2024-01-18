@@ -28,24 +28,22 @@ namespace SheepManager.Infrastructure.Repositories
             return Task.FromResult(_sheepManagerDbContext.Sp_GetAllSheeps());
         }
 
-        public async Task<Sheep?> GetSheepById(Guid id)
+        public Task<Sheep?> GetSheepById(Guid id)
         {
-            throw new NotImplementedException();
+            var sheep = _sheepManagerDbContext.Sp_GetSheepById(id);
+            return Task.FromResult(sheep);
         }
 
-        public async Task<Sheep> AddNewSheep(Sheep newSheep)
+        public Task<Sheep> AddNewSheep(Sheep newSheep)
         {
-            throw new NotImplementedException();
+            _sheepManagerDbContext.Sp_AddSheep(newSheep);
+            return Task.FromResult(newSheep);
         }
 
-        public async Task<Sheep> UpdateSheep(Sheep sheepToUpdate)
+        public Task<Sheep> UpdateSheep(Sheep sheepToUpdate)
         {
-            throw new NotImplementedException();
-        }
-
-        public async Task<bool> DeleteSheepById(Guid id)
-        {
-            throw new NotImplementedException();
+            _sheepManagerDbContext.Sp_UpdateSheep(sheepToUpdate);
+            return Task.FromResult(sheepToUpdate);
         }
 
         #endregion

@@ -8,12 +8,12 @@ namespace SheepManager.Core.Domain.Entities
 
         [Key]
         public Guid HerdStatisticsId { get; set; }
-        public uint SheepsTotal { get; set; }
-        public uint MothersTotal { get; set; }
-        public uint RamsTotal { get; set; }
-        public uint NewBornTotal { get; set; }
-        public uint NewBornMaleTotal { get; set; }
-        public uint NewBornFemaleTotal { get; set; }
+        public int SheepsTotal { get; set; }
+        public int MothersTotal { get; set; }
+        public int RamsTotal { get; set; }
+        public int NewBornTotal { get; set; }
+        public int NewBornMaleTotal { get; set; }
+        public int NewBornFemaleTotal { get; set; }
         public double FertilityAVG { get; set; }
         public Guid HerdId { get; set; }
 

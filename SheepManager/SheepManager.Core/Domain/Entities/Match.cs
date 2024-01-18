@@ -8,8 +8,8 @@ namespace SheepManager.Core.Domain.Entities
 
         [Key]
         public Guid MatchId { get; set; }
-        public uint MaleTagNumber { get; set; }
-        public uint FemaleTagNumber { get; set; }
+        public int MaleTagNumber { get; set; }
+        public int FemaleTagNumber { get; set; }
         public Guid SheepId { get; set; }
 
         #endregion

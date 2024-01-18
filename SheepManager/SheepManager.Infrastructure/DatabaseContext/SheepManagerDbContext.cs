@@ -1,5 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using SheepManager.Core.Domain.Entities;
+using System.Diagnostics;
+using System.Reflection;
 
 namespace SheepManager.Infrastructure.DatabaseContext
 {
@@ -30,20 +33,71 @@ namespace SheepManager.Infrastructure.DatabaseContext
             return Sheeps.FromSqlRaw("EXECUTE [dbo].[GetAllSheeps]").ToList();
         }
 
-        public Sheep Sp_GetSheepById(Guid sheepId)
+        public Sheep? Sp_GetSheepById(Guid sheepId)
         {
-            return null;
-            //return Sheeps.FromSqlRaw("EXECUTE [dbo].[GetSheepById]");
+            var returnedSheep = Sheeps.FromSql($"EXECUTE [dbo].[GetSheepById] {sheepId}").ToList();
+
+            if (returnedSheep == null)
+            {
+                return null;
+            }
+
+            return returnedSheep.Where(s => s.SheepId == sheepId).FirstOrDefault();
         }
 
-        public Sheep Sp_AddSheep(Sheep newSheep)
+        public int Sp_AddSheep(Sheep newSheep)
         {
-            return newSheep;
+            SqlParameter[] sheepParameters = new SqlParameter[]
+            {
+                new SqlParameter("@SheepId", newSheep.SheepId),
+                new SqlParameter("@TagNumber", newSheep.TagNumber),
+                new SqlParameter("@Weight", newSheep.Weight),
+                new SqlParameter("@Gender", newSheep.Gender),
+                new SqlParameter("@Race", newSheep.Race),
+                new SqlParameter("@BloodType", newSheep.BloodType),
+                new SqlParameter("@Selection", newSheep.Selection),
+                new SqlParameter("@Birthdate", newSheep.Birthdate),
+                new SqlParameter("@MotherTagNumber", newSheep.MotherTagNumber),
+                new SqlParameter("@FatherTagNumber", newSheep.FatherTagNumber),
+                new SqlParameter("@IsDead", newSheep.IsDead),
+                new SqlParameter("@IsSold", newSheep.IsSold),
+                new SqlParameter("@IsPregnant", newSheep.IsPregnant),
+                new SqlParameter("@BirthId", newSheep.BirthId),
+                new SqlParameter("@VaccineId", newSheep.VaccineId),
+            };
+
+            int rowAffected = Database.ExecuteSqlRaw("EXECUTE [dbo].[AddSheep] @SheepId, @TagNumber, @Weight, @Gender, @Race, " +
+                "@BloodType, @Selection, @Birthdate, @MotherTagNumber, @FatherTagNumber, @IsDead, @IsSold, " +
+                "@IsPregnant, @BirthId, @VaccineId", sheepParameters);
+
+            return rowAffected;
         }
 
-        public Sheep Sp_UpdateSheep(Sheep sheepToUpdate)
+        public int Sp_UpdateSheep(Sheep sheepToUpdate)
         {
-            return sheepToUpdate;
+            SqlParameter[] sheepParameters = new SqlParameter[]
+            {
+                new SqlParameter("@TagNumber", sheepToUpdate.TagNumber),
+                new SqlParameter("@Weight", sheepToUpdate.Weight),
+                new SqlParameter("@Gender", sheepToUpdate.Gender),
+                new SqlParameter("@Race", sheepToUpdate.Race),
+                new SqlParameter("@BloodType", sheepToUpdate.BloodType),
+                new SqlParameter("@Selection", sheepToUpdate.Selection),
+                new SqlParameter("@Birthdate", sheepToUpdate.Birthdate),
+                new SqlParameter("@MotherTagNumber", sheepToUpdate.MotherTagNumber),
+                new SqlParameter("@FatherTagNumber", sheepToUpdate.FatherTagNumber),
+                new SqlParameter("@IsDead", sheepToUpdate.IsDead),
+                new SqlParameter("@IsSold", sheepToUpdate.IsSold),
+                new SqlParameter("@IsPregnant", sheepToUpdate.IsPregnant),
+                new SqlParameter("@BirthId", sheepToUpdate.BirthId),
+                new SqlParameter("@VaccineId", sheepToUpdate.VaccineId),
+            };
+
+            int rowAffected = Database.ExecuteSqlRaw("EXECUTE [dbo].[AddSheep] @SheepId, @TagNumber, @Weight, @Gender, @Race, " +
+            "@BloodType, @Selection, @Birthdate, @MotherTagNumber, @FatherTagNumber, @IsDead, @IsSold, " +
+            "@IsPregnant, @BirthId, @VaccineId", sheepParameters);
+
+            return rowAffected;
         }
 
         #endregion

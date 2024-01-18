@@ -9,6 +9,7 @@ var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 
+app.UseHsts();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

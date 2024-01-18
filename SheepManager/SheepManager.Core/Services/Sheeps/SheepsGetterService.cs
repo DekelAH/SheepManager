@@ -35,9 +35,9 @@ namespace SheepManager.Core.Services.Sheeps
             return allSheepsResponse;
         }
 
-        public async Task<SheepResponse?> GetSheepById(Guid id)
+        public async Task<SheepResponse?> GetSheepById(Guid sheepId)
         {
-            var matchingSheep = await _sheepsRepository.GetSheepById(id);
+            var matchingSheep = await _sheepsRepository.GetSheepById(sheepId);
             return matchingSheep == null
                 ? throw new NullReferenceException("Sheep wasn't found, check id input")
                 : matchingSheep.ToSheepResponse();

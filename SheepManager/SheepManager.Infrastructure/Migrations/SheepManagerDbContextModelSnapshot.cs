@@ -65,11 +65,11 @@ namespace SheepManager.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<long>("FemaleTagNumber")
-                        .HasColumnType("bigint");
+                    b.Property<int>("FemaleTagNumber")
+                        .HasColumnType("int");
 
-                    b.Property<long>("MaleTagNumber")
-                        .HasColumnType("bigint");
+                    b.Property<int>("MaleTagNumber")
+                        .HasColumnType("int");
 
                     b.Property<Guid>("SheepId")
                         .HasColumnType("uniqueidentifier");
@@ -94,8 +94,8 @@ namespace SheepManager.Infrastructure.Migrations
                     b.Property<string>("BloodType")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("FatherTagNumber")
-                        .HasColumnType("bigint");
+                    b.Property<int>("FatherTagNumber")
+                        .HasColumnType("int");
 
                     b.Property<string>("Gender")
                         .HasColumnType("nvarchar(max)");
@@ -109,8 +109,8 @@ namespace SheepManager.Infrastructure.Migrations
                     b.Property<bool>("IsSold")
                         .HasColumnType("bit");
 
-                    b.Property<long>("MotherTagNumber")
-                        .HasColumnType("bigint");
+                    b.Property<int>("MotherTagNumber")
+                        .HasColumnType("int");
 
                     b.Property<string>("Race")
                         .HasColumnType("nvarchar(max)");
@@ -118,8 +118,8 @@ namespace SheepManager.Infrastructure.Migrations
                     b.Property<string>("Selection")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("TagNumber")
-                        .HasColumnType("bigint");
+                    b.Property<int>("TagNumber")
+                        .HasColumnType("int");
 
                     b.Property<Guid>("VaccineId")
                         .HasColumnType("uniqueidentifier");

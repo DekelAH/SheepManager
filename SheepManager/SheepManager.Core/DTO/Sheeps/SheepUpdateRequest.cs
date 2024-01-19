@@ -44,6 +44,7 @@ namespace SheepManager.Core.DTO.Sheeps
         {
             return new Sheep()
             {
+                SheepId = SheepId,
                 TagNumber = TagNumber,
                 Weight = Weight,
                 Gender = Gender,

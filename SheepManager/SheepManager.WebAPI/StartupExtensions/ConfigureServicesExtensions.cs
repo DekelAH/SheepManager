@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SheepManager.Core.Domain.Repository_Contracts;
 using SheepManager.Core.Services.Sheeps;
+using SheepManager.Core.Services.Vaccines;
 using SheepManager.Core.Services_Contracts.Sheeps;
+using SheepManager.Core.Services_Contracts.Vaccines;
 using SheepManager.Infrastructure.DatabaseContext;
 using SheepManager.Infrastructure.Repositories;
 
@@ -23,9 +25,18 @@ namespace SheepManager.WebAPI.StartupExtensions
 
             #endregion
 
+            #region VaccineServices
+
+            services.AddScoped<IVaccinesGetterService, VaccinesGetterService>();
+            services.AddScoped<IVaccinesAdderService, VaccinesAdderService>();
+            services.AddScoped<IVaccinesUpdaterService, VaccineUpdaterService>();
+
+            #endregion
+
             #region Repositories
 
             services.AddScoped<ISheepsRepository, SheepsRepository>();
+            services.AddScoped<IVaccinesRepository, VaccinesRepository>();
 
             #endregion
 

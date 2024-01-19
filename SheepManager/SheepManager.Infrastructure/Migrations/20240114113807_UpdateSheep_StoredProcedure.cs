@@ -14,10 +14,10 @@ namespace SheepManager.Infrastructure.Migrations
             @BloodType nvarchar(MAX), @Selection nvarchar(MAX), @Birthdate datetime2(7), @MotherTagNumber bigint, @FatherTagNumber bigint,
             @IsDead bit, @IsSold bit, @IsPregnant bit, @BirthId uniqueidentifier, @VaccineId uniqueidentifier)            
             AS BEGIN
-                WHERE SheepId = @SheepId;
 
                 UPDATE [dbo].[Sheeps]
-                SET 
+                SET
+                SheepId = @SheepId,
                 TagNumber = @TagNumber, 
                 Weight = @Weight, 
                 Gender = @Gender, 
@@ -33,6 +33,7 @@ namespace SheepManager.Infrastructure.Migrations
                 BirthId = @BirthId, 
                 VaccineId = @VaccineId
                 
+                WHERE SheepId = @SheepId;
             END
             ";
 

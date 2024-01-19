@@ -131,6 +131,32 @@ namespace SheepManager.Infrastructure.Migrations
 
                     b.ToTable("Sheeps");
                 });
+
+            modelBuilder.Entity("SheepManager.Core.Domain.Entities.Vaccine", b =>
+                {
+                    b.Property<Guid>("VaccineId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsForBirth")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsMandatory")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("SheepTagNumber")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("VaccinationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("VaccineName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("VaccineId");
+
+                    b.ToTable("Vaccines");
+                });
 #pragma warning restore 612, 618
         }
     }

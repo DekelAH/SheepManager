@@ -12,6 +12,7 @@ namespace SheepManager.Core.Domain.Entities
         public DateTime VaccinationDate { get; set; }
         public bool IsMandatory { get; set; }
         public bool IsForBirth { get; set; }
+        public int SheepTagNumber { get; set; }
 
         #endregion
     }

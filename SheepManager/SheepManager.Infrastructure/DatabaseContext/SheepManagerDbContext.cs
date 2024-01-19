@@ -1,8 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using SheepManager.Core.Domain.Entities;
-using System.Diagnostics;
-using System.Reflection;
 
 namespace SheepManager.Infrastructure.DatabaseContext
 {
@@ -14,6 +12,7 @@ namespace SheepManager.Infrastructure.DatabaseContext
         public virtual DbSet<Herd> Herds { get; set; }
         public virtual DbSet<Sheep> Sheeps { get; set; }
         public virtual DbSet<Match> Matches { get; set; }
+        public virtual DbSet<Vaccine> Vaccines { get; set; }
 
         #endregion
 
@@ -28,6 +27,7 @@ namespace SheepManager.Infrastructure.DatabaseContext
 
         #region SP Methods
 
+        #region Sheeps_SP Methods
         public List<Sheep> Sp_GetAllSheeps()
         {
             return Sheeps.FromSqlRaw("EXECUTE [dbo].[GetAllSheeps]").ToList();
@@ -77,6 +77,7 @@ namespace SheepManager.Infrastructure.DatabaseContext
         {
             SqlParameter[] sheepParameters = new SqlParameter[]
             {
+                new SqlParameter("@SheepId", sheepToUpdate.SheepId),
                 new SqlParameter("@TagNumber", sheepToUpdate.TagNumber),
                 new SqlParameter("@Weight", sheepToUpdate.Weight),
                 new SqlParameter("@Gender", sheepToUpdate.Gender),
@@ -93,12 +94,70 @@ namespace SheepManager.Infrastructure.DatabaseContext
                 new SqlParameter("@VaccineId", sheepToUpdate.VaccineId),
             };
 
-            int rowAffected = Database.ExecuteSqlRaw("EXECUTE [dbo].[AddSheep] @SheepId, @TagNumber, @Weight, @Gender, @Race, " +
+            int rowAffected = Database.ExecuteSqlRaw("EXECUTE [dbo].[UpdateSheep] @SheepId, @TagNumber, @Weight, @Gender, @Race, " +
             "@BloodType, @Selection, @Birthdate, @MotherTagNumber, @FatherTagNumber, @IsDead, @IsSold, " +
             "@IsPregnant, @BirthId, @VaccineId", sheepParameters);
 
             return rowAffected;
         }
+        #endregion
+
+        #region Vaccines_SP Methods
+
+        public List<Vaccine> Sp_GetAllVaccines()
+        {
+            return Vaccines.FromSqlRaw("EXECUTE [dbo].[GetAllVaccines]").ToList();
+        }
+
+        public List<Vaccine>? Sp_GetVaccinesByTagNumber(int tagNumber)
+        {
+            var returnedVaccines = Vaccines.FromSql($"EXECUTE [dbo].[GetVaccinesByTagNumber] {tagNumber}").ToList();
+
+            if (returnedVaccines == null || returnedVaccines.Count == 0)
+            {
+                return null;
+            }
+
+            return returnedVaccines;
+        }
+
+        public int Sp_AddVaccine(Vaccine newVaccine)
+        {
+            SqlParameter[] vaccineParameters = new SqlParameter[]
+            {
+                new SqlParameter("@VaccineId", newVaccine.VaccineId),
+                new SqlParameter("@VaccineName", newVaccine.VaccineName),
+                new SqlParameter("@VaccinationDate", newVaccine.VaccinationDate),
+                new SqlParameter("@IsForBirth", newVaccine.IsForBirth),
+                new SqlParameter("@IsMandatory", newVaccine.IsMandatory),
+                new SqlParameter("@SheepTagNumber", newVaccine.SheepTagNumber)
+            };
+
+            int rowAffected = Database.ExecuteSqlRaw("EXECUTE [dbo].[AddVaccine] @VaccineId, @VaccineName, @VaccinationDate, " +
+                "@IsForBirth, @IsMandatory, @SheepTagNumber", vaccineParameters);
+
+            return rowAffected;
+        }
+
+        public int Sp_UpdateVaccine(Vaccine vaccineToUpdate)
+        {
+            SqlParameter[] vaccineParameters = new SqlParameter[]
+{
+                new SqlParameter("@VaccineId", vaccineToUpdate.VaccineId),
+                new SqlParameter("@VaccineName", vaccineToUpdate.VaccineName),
+                new SqlParameter("@VaccinationDate", vaccineToUpdate.VaccinationDate),
+                new SqlParameter("@IsForBirth", vaccineToUpdate.IsForBirth),
+                new SqlParameter("@IsMandatory", vaccineToUpdate.IsMandatory),
+                new SqlParameter("@SheepTagNumber", vaccineToUpdate.SheepTagNumber)
+};
+
+            int rowAffected = Database.ExecuteSqlRaw("EXECUTE [dbo].[UpdateSheep] @VaccineId, @VaccineName, @VaccinationDate," +
+                "@IsForBirth, @IsMandatory, @SheepTagNumber", vaccineParameters);
+
+            return rowAffected;
+        }
+
+        #endregion
 
         #endregion
     }

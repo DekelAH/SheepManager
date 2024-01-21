@@ -13,7 +13,6 @@ namespace SheepManager.Infrastructure.DatabaseContext
         public virtual DbSet<Sheep> Sheeps { get; set; }
         public virtual DbSet<Match> Matches { get; set; }
         public virtual DbSet<Vaccine> Vaccines { get; set; }
-
         #endregion
 
         #region Ctor
@@ -30,12 +29,22 @@ namespace SheepManager.Infrastructure.DatabaseContext
         #region Sheeps_SP Methods
         public List<Sheep> Sp_GetAllSheeps()
         {
-            return Sheeps.FromSqlRaw("EXECUTE [dbo].[GetAllSheeps]").ToList();
+            return Sheeps.FromSqlRaw("EXECUTE [dbo].[GetAllSheeps]").AsNoTracking().ToList();
+        }
+
+        public List<Sheep> Sp_GetAllMales()
+        {
+            return Sheeps.FromSqlRaw($"EXECUTE [dbo].[GetAllMales]").AsNoTracking().ToList();
+        }
+
+        public List<Sheep> Sp_GetAllFemales()
+        {
+            return Sheeps.FromSqlRaw($"EXECUTE [dbo].[GetAllFemales]").AsNoTracking().ToList();
         }
 
         public Sheep? Sp_GetSheepById(Guid sheepId)
         {
-            var returnedSheep = Sheeps.FromSql($"EXECUTE [dbo].[GetSheepById] {sheepId}").ToList();
+            var returnedSheep = Sheeps.FromSql($"EXECUTE [dbo].[GetSheepById] {sheepId}").AsNoTracking().ToList();
 
             if (returnedSheep == null)
             {
@@ -151,8 +160,32 @@ namespace SheepManager.Infrastructure.DatabaseContext
                 new SqlParameter("@SheepTagNumber", vaccineToUpdate.SheepTagNumber)
 };
 
-            int rowAffected = Database.ExecuteSqlRaw("EXECUTE [dbo].[UpdateSheep] @VaccineId, @VaccineName, @VaccinationDate," +
+            int rowAffected = Database.ExecuteSqlRaw("EXECUTE [dbo].[UpdateVaccine] @VaccineId, @VaccineName, @VaccinationDate," +
                 "@IsForBirth, @IsMandatory, @SheepTagNumber", vaccineParameters);
+
+            return rowAffected;
+        }
+
+        #endregion
+
+        #region Matches_SP Methods
+
+        public List<Match> Sp_GetAllMatches()
+        {
+            return Matches.FromSqlRaw("EXECUTE [dbo].[GetAllMatches]").ToList();
+        }
+
+        public int Sp_AddMatch(Match newMatch)
+        {
+            SqlParameter[] matchParameters = new SqlParameter[]
+            {
+                new SqlParameter("@MatchId", newMatch.MatchId),
+                new SqlParameter("@MaleTagNumber", newMatch.MaleTagNumber),
+                new SqlParameter("@FemaleTagNumber", newMatch.FemaleTagNumber)
+            };
+
+            int rowAffected = Database.ExecuteSqlRaw("EXECUTE [dbo].[AddMatch] @MatchId, @MaleTagNumber, @FemaleTagNumber", 
+                matchParameters);
 
             return rowAffected;
         }

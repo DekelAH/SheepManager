@@ -14,7 +14,7 @@ namespace SheepManager.Infrastructure.Migrations
             CREATE PROCEDURE [dbo].[GetAllVaccines]
             AS BEGIN
             SELECT  VaccineId, VaccineName, VaccinationDate, IsMandatory, IsForBirth, SheepTagNumber
-            FROM [dbo].[Sheeps]
+            FROM [dbo].[Vaccines]
             END
             ";
 
@@ -32,3 +32,4 @@ namespace SheepManager.Infrastructure.Migrations
         }
     }
 }
+

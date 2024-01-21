@@ -10,7 +10,6 @@ namespace SheepManager.Core.Domain.Entities
         public Guid MatchId { get; set; }
         public int MaleTagNumber { get; set; }
         public int FemaleTagNumber { get; set; }
-        public Guid SheepId { get; set; }
 
         #endregion
 

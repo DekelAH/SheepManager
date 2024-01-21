@@ -28,6 +28,16 @@ namespace SheepManager.Infrastructure.Repositories
             return Task.FromResult(_sheepManagerDbContext.Sp_GetAllSheeps());
         }
 
+        public Task<List<Sheep>> GetAllMales()
+        {
+            return Task.FromResult(_sheepManagerDbContext.Sp_GetAllMales());
+        }
+
+        public Task<List<Sheep>> GetAllFemales()
+        {
+            return Task.FromResult(_sheepManagerDbContext.Sp_GetAllFemales());
+        }
+
         public Task<Sheep?> GetSheepById(Guid id)
         {
             var sheep = _sheepManagerDbContext.Sp_GetSheepById(id);

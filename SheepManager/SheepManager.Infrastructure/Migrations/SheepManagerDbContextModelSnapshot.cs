@@ -71,9 +71,6 @@ namespace SheepManager.Infrastructure.Migrations
                     b.Property<int>("MaleTagNumber")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("SheepId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("MatchId");
 
                     b.ToTable("Matches");

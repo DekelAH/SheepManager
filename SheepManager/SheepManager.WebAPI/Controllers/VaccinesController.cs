@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SheepManager.Core.Domain.Entities;
-using SheepManager.Core.DTO.Sheeps;
 using SheepManager.Core.DTO.Vaccines;
 using SheepManager.Core.Services_Contracts.Vaccines;
 

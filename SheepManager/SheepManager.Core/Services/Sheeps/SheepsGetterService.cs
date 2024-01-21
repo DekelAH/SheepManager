@@ -35,6 +35,30 @@ namespace SheepManager.Core.Services.Sheeps
             return allSheepsResponse;
         }
 
+        public async Task<List<SheepResponse>?> GetAllMales()
+        {
+            var allMaleSheeps = await _sheepsRepository.GetAllMales();
+            if (allMaleSheeps.Count <= 0)
+            {
+                throw new NullReferenceException(nameof(allMaleSheeps));
+            }
+
+            var allSheepsResponse = allMaleSheeps.Select(s => s.ToSheepResponse()).ToList();
+            return allSheepsResponse;
+        }
+
+        public async Task<List<SheepResponse>?> GetAllFemales()
+        {
+            var allFemaleSheeps = await _sheepsRepository.GetAllFemales();
+            if (allFemaleSheeps.Count <= 0)
+            {
+                throw new NullReferenceException(nameof(allFemaleSheeps));
+            }
+
+            var allSheepsResponse = allFemaleSheeps.Select(s => s.ToSheepResponse()).ToList();
+            return allSheepsResponse;
+        }
+
         public async Task<SheepResponse?> GetSheepById(Guid sheepId)
         {
             var matchingSheep = await _sheepsRepository.GetSheepById(sheepId);

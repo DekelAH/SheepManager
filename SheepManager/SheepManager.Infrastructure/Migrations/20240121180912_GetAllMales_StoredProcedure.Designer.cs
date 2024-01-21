@@ -12,8 +12,8 @@ using SheepManager.Infrastructure.DatabaseContext;
 namespace SheepManager.Infrastructure.Migrations
 {
     [DbContext(typeof(SheepManagerDbContext))]
-    [Migration("20240119184204_GetAllVaccines_StoredProcedure")]
-    partial class GetAllVaccines_StoredProcedure
+    [Migration("20240121180912_GetAllMales_StoredProcedure")]
+    partial class GetAllMales_StoredProcedure
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -73,9 +73,6 @@ namespace SheepManager.Infrastructure.Migrations
 
                     b.Property<int>("MaleTagNumber")
                         .HasColumnType("int");
-
-                    b.Property<Guid>("SheepId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("MatchId");
 

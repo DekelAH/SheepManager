@@ -24,5 +24,21 @@ namespace SheepManager.Core.Domain.Entities
         public Guid VaccineId { get; set; }
 
         #endregion
+
+        #region Methods
+
+        public double GetAge()
+        {
+            var today = DateTime.Today;
+            var age = today.Year - Birthdate.Year;
+            if (Birthdate.Date > today.AddYears(-age))
+            {
+                return age--;
+            }
+
+            return age;
+        }
+
+        #endregion
     }
 }

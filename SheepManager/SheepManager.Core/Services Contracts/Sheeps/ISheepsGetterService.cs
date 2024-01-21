@@ -7,6 +7,8 @@ namespace SheepManager.Core.Services_Contracts.Sheeps
         #region Methods
 
         public Task<List<SheepResponse>?> GetAllSheeps();
+        public Task<List<SheepResponse>?> GetAllMales();
+        public Task<List<SheepResponse>?> GetAllFemales();
         public Task<SheepResponse?> GetSheepById(Guid id);
 
         #endregion

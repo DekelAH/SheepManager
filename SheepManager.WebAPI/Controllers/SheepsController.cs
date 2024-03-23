@@ -42,7 +42,7 @@ namespace SheepManager.WebAPI.Controllers
             _logger.LogInformation(message: "Getting all sheeps...");
 
             var allSheeps = await _sheepsGetterService.GetAllSheeps();
-            if (allSheeps == null || allSheeps.Count == 0)
+            if (allSheeps is null || allSheeps.Count == 0)
             {
                 return NotFound();
             }
@@ -57,7 +57,7 @@ namespace SheepManager.WebAPI.Controllers
             _logger.LogInformation(message: "Searching sheep by id - {sheepId}...", sheepId);
 
             var foundSheep = await _sheepsGetterService.GetSheepById(sheepId);
-            if (foundSheep == null)
+            if (foundSheep is null)
             {
                 return NotFound();
             }
@@ -70,7 +70,7 @@ namespace SheepManager.WebAPI.Controllers
         public async Task<ActionResult<SheepResponse>> AddSheep(SheepAddRequest sheepAddRequest)
         {
             _logger.LogInformation(message: "Adding new sheep...");
-            if (sheepAddRequest == null)
+            if (sheepAddRequest is null)
             {
                 return Problem(detail: "Invalid sheep details", statusCode: 400, title: "Add Sheep");
             }
@@ -89,7 +89,7 @@ namespace SheepManager.WebAPI.Controllers
                 return BadRequest();
             }
             var matchingSheepResponse = await _sheepsGetterService.GetSheepById(sheepUpdateRequest.SheepId);
-            if (matchingSheepResponse == null)
+            if (matchingSheepResponse is null)
             {
                 return Problem(detail: "Invalid sheep id", statusCode: 404, title: "Sheep search");
             }

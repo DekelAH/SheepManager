@@ -23,3 +23,16 @@ C:\Programming\Github Projects\SheepManager\SheepManager\SheepManager.Core\obj\D
 C:\Programming\Github Projects\SheepManager\SheepManager\SheepManager.Core\obj\Debug\net7.0\refint\SheepManager.Core.dll
 C:\Programming\Github Projects\SheepManager\SheepManager\SheepManager.Core\obj\Debug\net7.0\SheepManager.Core.pdb
 C:\Programming\Github Projects\SheepManager\SheepManager\SheepManager.Core\obj\Debug\net7.0\ref\SheepManager.Core.dll
+C:\Programming\Github Projects\SheepManager\SheepManager.Core\bin\Debug\net7.0\SheepManager.Core.deps.json
+C:\Programming\Github Projects\SheepManager\SheepManager.Core\bin\Debug\net7.0\SheepManager.Core.dll
+C:\Programming\Github Projects\SheepManager\SheepManager.Core\bin\Debug\net7.0\SheepManager.Core.pdb
+C:\Programming\Github Projects\SheepManager\SheepManager.Core\obj\Debug\net7.0\SheepManager.Core.csproj.AssemblyReference.cache
+C:\Programming\Github Projects\SheepManager\SheepManager.Core\obj\Debug\net7.0\SheepManager.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Programming\Github Projects\SheepManager\SheepManager.Core\obj\Debug\net7.0\SheepManager.Core.AssemblyInfoInputs.cache
+C:\Programming\Github Projects\SheepManager\SheepManager.Core\obj\Debug\net7.0\SheepManager.Core.AssemblyInfo.cs
+C:\Programming\Github Projects\SheepManager\SheepManager.Core\obj\Debug\net7.0\SheepManager.Core.csproj.CoreCompileInputs.cache
+C:\Programming\Github Projects\SheepManager\SheepManager.Core\obj\Debug\net7.0\SheepManager.Core.sourcelink.json
+C:\Programming\Github Projects\SheepManager\SheepManager.Core\obj\Debug\net7.0\SheepManager.Core.dll
+C:\Programming\Github Projects\SheepManager\SheepManager.Core\obj\Debug\net7.0\refint\SheepManager.Core.dll
+C:\Programming\Github Projects\SheepManager\SheepManager.Core\obj\Debug\net7.0\SheepManager.Core.pdb
+C:\Programming\Github Projects\SheepManager\SheepManager.Core\obj\Debug\net7.0\ref\SheepManager.Core.dll

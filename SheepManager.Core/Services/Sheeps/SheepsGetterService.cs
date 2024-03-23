@@ -65,6 +65,17 @@ namespace SheepManager.Core.Services.Sheeps
             return matchingSheep?.ToSheepResponse();
         }
 
+        public async Task<List<SheepResponse>?> GetSheepsByHerdId(Guid herdId)
+        {
+            var allSheeps = await GetAllSheeps();
+            var allSheepsByHerd = allSheeps?.Where(s => s.HerdId == herdId).ToList();
+            if (allSheepsByHerd is null)
+            {
+                return null;
+            }
+            return allSheepsByHerd;
+        }
+
         #endregion
     }
 }

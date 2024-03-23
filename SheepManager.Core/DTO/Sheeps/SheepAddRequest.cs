@@ -1,5 +1,6 @@
 ﻿using SheepManager.Core.Domain.Entities;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 
 namespace SheepManager.Core.DTO.Sheeps
 {
@@ -22,7 +23,7 @@ namespace SheepManager.Core.DTO.Sheeps
         public string? Selection { get; set; }
 
         [Required(ErrorMessage = "Birthdate can't be blank")]
-        public DateTime Birthdate { get; set; }
+        public required string Birthdate { get; set; }
 
         [Range(0, int.MaxValue, ErrorMessage = "Weight can't be lower than 0")]
         public int MotherTagNumber { get; set; }
@@ -48,7 +49,7 @@ namespace SheepManager.Core.DTO.Sheeps
                 Race = Race,
                 BloodType = BloodType,
                 Selection = Selection,
-                Birthdate = Birthdate,
+                Birthdate = DateTime.ParseExact(Birthdate, "yyyy-MM-dd", CultureInfo.InvariantCulture),
                 MotherTagNumber = MotherTagNumber,
                 FatherTagNumber = FatherTagNumber,
                 IsDead = IsDead,

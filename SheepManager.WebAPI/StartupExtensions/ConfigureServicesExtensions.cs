@@ -50,6 +50,7 @@ namespace SheepManager.WebAPI.StartupExtensions
 
             services.AddScoped<IHerdsGetterService, HerdsGetterService>();
             services.AddScoped<IHerdAdderService, HerdsAdderService>();
+            services.AddScoped<IHerdUpdaterService, HerdUpdaterService>();
 
             #endregion
 

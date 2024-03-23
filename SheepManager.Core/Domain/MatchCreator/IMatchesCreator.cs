@@ -6,7 +6,7 @@ namespace SheepManager.Core.Domain.MatchCreator
     {
         #region Methods
 
-        public Task<List<Match>> CreateMatches(List<Sheep> allmales, List<Sheep> allFemales);
+        public Task<List<Match>> CreateMatches(List<Match> existingMatches, List<Sheep> allmales, List<Sheep> allFemales);
 
         #endregion
     }

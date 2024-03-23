@@ -1,4 +1,5 @@
 ﻿using SheepManager.Core.Domain.Entities;
+using SheepManager.Core.DTO.Matches;
 using SheepManager.Core.DTO.Sheeps;
 
 namespace SheepManager.Core.DTO.Herds
@@ -10,6 +11,7 @@ namespace SheepManager.Core.DTO.Herds
         public Guid HerdId { get; set; }
         public string? HerdName { get; set; }
         public List<SheepResponse>? HerdSheeps { get; set; }
+        public List<MatchResponse>? Matches { get; set; }
 
         #endregion
 

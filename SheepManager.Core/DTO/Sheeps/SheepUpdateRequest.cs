@@ -62,4 +62,28 @@ namespace SheepManager.Core.DTO.Sheeps
 
         #endregion
     }
+
+    public static class SheepUpdateExtensionMethods
+    {
+        public static SheepUpdateRequest ToSheepUpdateRequest(this Sheep sheep)
+        {
+            return new SheepUpdateRequest()
+            {
+                SheepId = sheep.SheepId,
+                TagNumber = sheep.TagNumber,
+                HerdId = sheep.HerdId,
+                Weight = sheep.Weight,
+                Gender = sheep.Gender,
+                Race = sheep.Race,
+                BloodType = sheep.BloodType,
+                Selection = sheep.Selection,
+                Birthdate = sheep.Birthdate,
+                MotherTagNumber = sheep.MotherTagNumber,
+                FatherTagNumber = sheep.FatherTagNumber,
+                IsDead = sheep.IsDead,
+                IsSold = sheep.IsSold,
+                IsPregnant = sheep.IsPregnant
+            };
+        }
+    }
 }

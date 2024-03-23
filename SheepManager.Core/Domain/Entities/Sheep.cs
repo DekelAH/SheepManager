@@ -28,15 +28,25 @@ namespace SheepManager.Core.Domain.Entities
 
         public double GetAge()
         {
-            var today = DateTime.Today;
-            var age = today.Year - Birthdate.Year;
-            if (Birthdate.Date > today.AddYears(-age))
+            DateTime today = DateTime.Today;
+            int years = today.Year - Birthdate.Year;
+            DateTime last = Birthdate.AddYears(years);
+
+            if (last > today)
             {
-                return age--;
+                last = last.AddYears(-1);
+                years--;
             }
 
-            return age;
+            DateTime next = last.AddYears(1);
+            double yearDays = (next - last).Days;
+            double days = (today - last).Days;
+            double exactAge = (double)years + (days / yearDays);
+
+            return exactAge;
         }
+
+
 
         #endregion
     }

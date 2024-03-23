@@ -45,7 +45,7 @@ namespace SheepManager.Core.Services.Matches
         {
             var allMales = males.Select(m => m.ToSheep()).ToList();
             var allFemales = females.Select(f => f.ToSheep()).ToList();
-            var createdMatches = await _matchCreator.CreateMatches(allMales, allFemales);
+            var createdMatches = await _matchCreator.CreateMatches(await _matchesRepository.GetAllMatches(), allMales, allFemales);
 
             foreach (var match in createdMatches)
             {

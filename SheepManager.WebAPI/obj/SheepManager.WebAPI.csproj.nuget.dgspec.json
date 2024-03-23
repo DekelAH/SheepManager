@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Programming\\Github Projects\\SheepManager\\SheepManager\\SheepManager.WebAPI\\SheepManager.WebAPI.csproj": {}
+    "C:\\Programming\\Github Projects\\SheepManager\\SheepManager.WebAPI\\SheepManager.WebAPI.csproj": {}
   },
   "projects": {
-    "C:\\Programming\\Github Projects\\SheepManager\\SheepManager\\SheepManager.Core\\SheepManager.Core.csproj": {
+    "C:\\Programming\\Github Projects\\SheepManager\\SheepManager.Core\\SheepManager.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Programming\\Github Projects\\SheepManager\\SheepManager\\SheepManager.Core\\SheepManager.Core.csproj",
+        "projectUniqueName": "C:\\Programming\\Github Projects\\SheepManager\\SheepManager.Core\\SheepManager.Core.csproj",
         "projectName": "SheepManager.Core",
-        "projectPath": "C:\\Programming\\Github Projects\\SheepManager\\SheepManager\\SheepManager.Core\\SheepManager.Core.csproj",
+        "projectPath": "C:\\Programming\\Github Projects\\SheepManager\\SheepManager.Core\\SheepManager.Core.csproj",
         "packagesPath": "C:\\Users\\dekel\\.nuget\\packages\\",
-        "outputPath": "C:\\Programming\\Github Projects\\SheepManager\\SheepManager\\SheepManager.Core\\obj\\",
+        "outputPath": "C:\\Programming\\Github Projects\\SheepManager\\SheepManager.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dekel\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -69,14 +69,14 @@
         }
       }
     },
-    "C:\\Programming\\Github Projects\\SheepManager\\SheepManager\\SheepManager.Infrastructure\\SheepManager.Infrastructure.csproj": {
+    "C:\\Programming\\Github Projects\\SheepManager\\SheepManager.Infrastructure\\SheepManager.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Programming\\Github Projects\\SheepManager\\SheepManager\\SheepManager.Infrastructure\\SheepManager.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Programming\\Github Projects\\SheepManager\\SheepManager.Infrastructure\\SheepManager.Infrastructure.csproj",
         "projectName": "SheepManager.Infrastructure",
-        "projectPath": "C:\\Programming\\Github Projects\\SheepManager\\SheepManager\\SheepManager.Infrastructure\\SheepManager.Infrastructure.csproj",
+        "projectPath": "C:\\Programming\\Github Projects\\SheepManager\\SheepManager.Infrastructure\\SheepManager.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\dekel\\.nuget\\packages\\",
-        "outputPath": "C:\\Programming\\Github Projects\\SheepManager\\SheepManager\\SheepManager.Infrastructure\\obj\\",
+        "outputPath": "C:\\Programming\\Github Projects\\SheepManager\\SheepManager.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dekel\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -93,8 +93,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Programming\\Github Projects\\SheepManager\\SheepManager\\SheepManager.Core\\SheepManager.Core.csproj": {
-                "projectPath": "C:\\Programming\\Github Projects\\SheepManager\\SheepManager\\SheepManager.Core\\SheepManager.Core.csproj"
+              "C:\\Programming\\Github Projects\\SheepManager\\SheepManager.Core\\SheepManager.Core.csproj": {
+                "projectPath": "C:\\Programming\\Github Projects\\SheepManager\\SheepManager.Core\\SheepManager.Core.csproj"
               }
             }
           }
@@ -150,14 +150,14 @@
         }
       }
     },
-    "C:\\Programming\\Github Projects\\SheepManager\\SheepManager\\SheepManager.WebAPI\\SheepManager.WebAPI.csproj": {
+    "C:\\Programming\\Github Projects\\SheepManager\\SheepManager.WebAPI\\SheepManager.WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Programming\\Github Projects\\SheepManager\\SheepManager\\SheepManager.WebAPI\\SheepManager.WebAPI.csproj",
+        "projectUniqueName": "C:\\Programming\\Github Projects\\SheepManager\\SheepManager.WebAPI\\SheepManager.WebAPI.csproj",
         "projectName": "SheepManager.WebAPI",
-        "projectPath": "C:\\Programming\\Github Projects\\SheepManager\\SheepManager\\SheepManager.WebAPI\\SheepManager.WebAPI.csproj",
+        "projectPath": "C:\\Programming\\Github Projects\\SheepManager\\SheepManager.WebAPI\\SheepManager.WebAPI.csproj",
         "packagesPath": "C:\\Users\\dekel\\.nuget\\packages\\",
-        "outputPath": "C:\\Programming\\Github Projects\\SheepManager\\SheepManager\\SheepManager.WebAPI\\obj\\",
+        "outputPath": "C:\\Programming\\Github Projects\\SheepManager\\SheepManager.WebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dekel\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -174,8 +174,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Programming\\Github Projects\\SheepManager\\SheepManager\\SheepManager.Infrastructure\\SheepManager.Infrastructure.csproj": {
-                "projectPath": "C:\\Programming\\Github Projects\\SheepManager\\SheepManager\\SheepManager.Infrastructure\\SheepManager.Infrastructure.csproj"
+              "C:\\Programming\\Github Projects\\SheepManager\\SheepManager.Infrastructure\\SheepManager.Infrastructure.csproj": {
+                "projectPath": "C:\\Programming\\Github Projects\\SheepManager\\SheepManager.Infrastructure\\SheepManager.Infrastructure.csproj"
               }
             }
           }

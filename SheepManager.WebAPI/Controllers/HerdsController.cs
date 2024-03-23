@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SheepManager.Core.DTO.Herds;
 using SheepManager.Core.Services_Contracts.Herds;
+using SheepManager.Core.Services_Contracts.Matches;
 using SheepManager.Core.Services_Contracts.Sheeps;
 
 namespace SheepManager.WebAPI.Controllers
@@ -11,6 +12,8 @@ namespace SheepManager.WebAPI.Controllers
 
         private readonly IHerdsGetterService _herdsGetterService;
         private readonly IHerdAdderService _herdAdderService;
+        private readonly IHerdUpdaterService _herdUpdaterService;
+        private readonly IMatchesService _matchesService;
         private readonly ISheepsGetterService _sheepsGetterService;
 
         private readonly ILogger<HerdsController> _logger;
@@ -24,13 +27,17 @@ namespace SheepManager.WebAPI.Controllers
             ILogger<HerdsController> logger,
             IHerdsGetterService herdsGetterService,
             IHerdAdderService herdAdderService,
-            ISheepsGetterService sheepsGetterService
+            IHerdUpdaterService herdUpdaterService,
+            ISheepsGetterService sheepsGetterService,
+            IMatchesService matchesService
             )
         {
             _logger = logger;
             _herdsGetterService = herdsGetterService;
             _herdAdderService = herdAdderService;
+            _herdUpdaterService = herdUpdaterService;
             _sheepsGetterService = sheepsGetterService;
+            _matchesService = matchesService;
         }
 
         #endregion
@@ -63,8 +70,29 @@ namespace SheepManager.WebAPI.Controllers
                 return NotFound();
             }
 
+            var allMales = await _sheepsGetterService.GetAllMales();
+            if (allMales == null || allMales.Count <= 0)
+            {
+                _logger.LogInformation(message: "Can't find any males sheeps...");
+                return NotFound();
+            }
+
+            var allFemales = await _sheepsGetterService.GetAllFemales();
+            if (allFemales == null || allFemales.Count <= 0)
+            {
+                _logger.LogInformation(message: "Can't find any females sheeps...");
+                return NotFound();
+            }
+
+            var allMatches = await _matchesService.GetAllMatches(allMales, allFemales);
+            if (allMatches.Count <= 0 || allMatches == null)
+            {
+                return NotFound();
+            }
+
             var allSheeps = await _sheepsGetterService.GetAllSheeps();
             foundHerd.HerdSheeps = allSheeps?.Where(s => s.HerdId == herdId).ToList();
+            foundHerd.Matches = allMatches;
 
             _logger.LogInformation(message: "Retrieved herd with an id - {herdId}", herdId);
             return Ok(foundHerd);
@@ -82,6 +110,20 @@ namespace SheepManager.WebAPI.Controllers
             var addedHerd = await _herdAdderService.AddHerd(herdAddRequest);
             _logger.LogInformation(message: "Herd - {herdId} added successfuly", addedHerd.HerdId);
             return Ok(addedHerd);
+        }
+
+        [HttpPut("{herdId}")]
+        public async Task<ActionResult<HerdResponse>> UpdateHerd(HerdUpdateRequest herdUpdateRequest)
+        {
+            _logger.LogInformation(message: "Updating herd...");
+            if (herdUpdateRequest is null)
+            {
+                return Problem(detail: "Invalid herd details", statusCode: 400, title: "Updating Herd");
+            }
+
+            var updatedHerdResponse = await _herdUpdaterService.UpdateHerd(herdUpdateRequest);
+            _logger.LogInformation(message: "Herd - {herdId} added successfuly", updatedHerdResponse.HerdId);
+            return Ok(updatedHerdResponse);
         }
 
         #endregion

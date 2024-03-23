@@ -192,14 +192,12 @@ namespace SheepManager.Infrastructure.DatabaseContext
 
         #region Herds_SP Methods
 
-        #endregion
-
         public List<Herd> Sp_GetAllHerds()
         {
             return Herds.FromSqlRaw("EXECUTE [dbo].[GetAllHerds]").AsNoTracking().ToList();
         }
 
-        public Herd Sp_GetHerdById(Guid herdId)
+        public Herd? Sp_GetHerdById(Guid herdId)
         {
             var foundHerd = Herds.Where(h => h.HerdId == herdId).FirstOrDefault();
             if (foundHerd != null)
@@ -224,6 +222,7 @@ namespace SheepManager.Infrastructure.DatabaseContext
             return rowAffected;
         }
 
+        #endregion
         #endregion
     }
 }

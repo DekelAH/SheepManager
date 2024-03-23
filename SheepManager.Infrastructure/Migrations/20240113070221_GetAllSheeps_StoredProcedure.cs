@@ -4,10 +4,8 @@
 
 namespace SheepManager.Infrastructure.Migrations
 {
-    /// <inheritdoc />
     public partial class GetAllSheeps_StoredProcedure : Migration
     {
-        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             string sp_GetAllSheeps = @"
@@ -22,7 +20,6 @@ namespace SheepManager.Infrastructure.Migrations
             migrationBuilder.Sql(sp_GetAllSheeps);
         }
 
-        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             string sp_GetAllSheeps = @"

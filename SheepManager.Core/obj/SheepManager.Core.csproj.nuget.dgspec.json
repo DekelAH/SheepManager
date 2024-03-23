@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Programming\\Github Projects\\SheepManager\\SheepManager\\SheepManager.Core\\SheepManager.Core.csproj": {}
+    "C:\\Programming\\Github Projects\\SheepManager\\SheepManager.Core\\SheepManager.Core.csproj": {}
   },
   "projects": {
-    "C:\\Programming\\Github Projects\\SheepManager\\SheepManager\\SheepManager.Core\\SheepManager.Core.csproj": {
+    "C:\\Programming\\Github Projects\\SheepManager\\SheepManager.Core\\SheepManager.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Programming\\Github Projects\\SheepManager\\SheepManager\\SheepManager.Core\\SheepManager.Core.csproj",
+        "projectUniqueName": "C:\\Programming\\Github Projects\\SheepManager\\SheepManager.Core\\SheepManager.Core.csproj",
         "projectName": "SheepManager.Core",
-        "projectPath": "C:\\Programming\\Github Projects\\SheepManager\\SheepManager\\SheepManager.Core\\SheepManager.Core.csproj",
+        "projectPath": "C:\\Programming\\Github Projects\\SheepManager\\SheepManager.Core\\SheepManager.Core.csproj",
         "packagesPath": "C:\\Users\\dekel\\.nuget\\packages\\",
-        "outputPath": "C:\\Programming\\Github Projects\\SheepManager\\SheepManager\\SheepManager.Core\\obj\\",
+        "outputPath": "C:\\Programming\\Github Projects\\SheepManager\\SheepManager.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dekel\\AppData\\Roaming\\NuGet\\NuGet.Config",

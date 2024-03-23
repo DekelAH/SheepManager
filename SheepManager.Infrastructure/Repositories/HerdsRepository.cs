@@ -34,9 +34,13 @@ namespace SheepManager.Infrastructure.Repositories
             return Task.FromResult(_sheepManagerDbContext.Sp_GetAllHerds().ToList());
         }
 
-        public Task<Herd> GetHerdById(Guid herdId)
+        public Task<Herd>? GetHerdById(Guid herdId)
         {
             var herd = _sheepManagerDbContext.Sp_GetHerdById(herdId);
+            if (herd == null)
+            {
+                return null;
+            }
             return Task.FromResult(herd);
         }
 

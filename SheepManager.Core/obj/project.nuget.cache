@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XApxS8emg3uslj8/Q5qLr3ONFPDGNm8cLEq12mhi0+sQuYN9kTybiyNxRvmlV6ipCF0AN+SDLGFqcTP0hnYlyg==",
+  "dgSpecHash": "vMmm6oZTnRs+qlvdM0pZF4Zq8m50Gd8DgnmgL+fCUUumhYZ3ZEzGHHu6S+M8fg/R7X3O7MovtK7hPsjqMPBGog==",
   "success": true,
-  "projectFilePath": "C:\\Programming\\Github Projects\\SheepManager\\SheepManager\\SheepManager.Core\\SheepManager.Core.csproj",
+  "projectFilePath": "C:\\Programming\\Github Projects\\SheepManager\\SheepManager.Core\\SheepManager.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dekel\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\dekel\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

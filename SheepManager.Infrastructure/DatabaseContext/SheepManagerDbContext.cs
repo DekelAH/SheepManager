@@ -1,10 +1,12 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using SheepManager.Core.Domain.Entities;
+using SheepManager.Core.Domain.IdentityEntities;
 
 namespace SheepManager.Infrastructure.DatabaseContext
 {
-    public class SheepManagerDbContext : DbContext
+    public class SheepManagerDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, Guid>
     {
         #region Properties
 

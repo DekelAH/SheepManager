@@ -19,6 +19,7 @@ namespace SheepManager.Core.DTO.Account
 
         [Required(ErrorMessage = "ConfirmPassword cant be blank")]
         [DataType(DataType.Password)]
+        [Compare("Password", ErrorMessage = "Password and Confirm Password do not match")]
         public string? ConfirmPassword { get; set; }
 
         #endregion

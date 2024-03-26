@@ -10,14 +10,17 @@ namespace SheepManager.WebAPI.Controllers
         #region Fields
 
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
 
         #endregion
 
         #region Ctor
 
-        public AccountController(UserManager<ApplicationUser> userManager)
+        public AccountController(UserManager<ApplicationUser> userManager, 
+                                 SignInManager<ApplicationUser> signInManager)
         {
             _userManager = userManager;
+            _signInManager = signInManager;
         }
 
         #endregion
@@ -41,7 +44,8 @@ namespace SheepManager.WebAPI.Controllers
             IdentityResult result = await _userManager.CreateAsync(user);
             if (result.Succeeded)
             {
-                return Ok("User Registered Successfully");
+                await _signInManager.SignInAsync(user, isPersistent: false);
+                return Ok(user);
             }
             else
             {

@@ -13,6 +13,9 @@ app.UseHsts();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+app.UseAuthentication();
+
+app.UseRouting();
 app.MapControllers();
 
 app.Run();

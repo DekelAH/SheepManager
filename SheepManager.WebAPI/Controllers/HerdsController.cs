@@ -50,7 +50,7 @@ namespace SheepManager.WebAPI.Controllers
             _logger.LogInformation(message: "Getting all herds...");
 
             var allHerds = await _herdsGetterService.GetAllHerds();
-            if (allHerds == null || allHerds.Count == 0)
+            if (allHerds is null || allHerds.Count == 0)
             {
                 return NotFound();
             }

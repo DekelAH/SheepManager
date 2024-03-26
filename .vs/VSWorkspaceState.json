@@ -1,9 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\SheepManager.WebAPI",
-    "\\SheepManager.WebAPI\\Controllers"
+    ""
   ],
-  "SelectedNode": "\\SheepManager.WebAPI\\Controllers\\HerdsController.cs",
+  "SelectedNode": "\\SheepManagerSolution.sln (SheepManagerSolution.sln)",
   "PreviewInSolutionExplorer": false
 }

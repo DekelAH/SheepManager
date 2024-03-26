@@ -1,5 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using SheepManager.Core.Domain.IdentityEntities;
 using SheepManager.Core.Domain.MatchCreator;
 using SheepManager.Core.Domain.Repository_Contracts;
 using SheepManager.Core.Services.Herds;
@@ -66,6 +68,16 @@ namespace SheepManager.WebAPI.StartupExtensions
             #region OtherServices
 
             services.AddScoped<IMatchesCreator, MatchesCreator>();
+
+            #endregion
+
+            #region IdentityServices
+
+            services.AddIdentity<ApplicationUser, ApplicationRole>()
+                    .AddEntityFrameworkStores<SheepManagerDbContext>()
+                    .AddDefaultTokenProviders()
+                    .AddUserStore<UserStore<ApplicationUser, ApplicationRole, SheepManagerDbContext,Guid>>()
+                    .AddRoleStore<RoleStore<ApplicationRole, SheepManagerDbContext, Guid>>();
 
             #endregion
 

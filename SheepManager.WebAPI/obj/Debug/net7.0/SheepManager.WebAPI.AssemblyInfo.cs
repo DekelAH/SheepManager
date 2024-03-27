@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SheepManager.WebAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f862f76b6de8bbe2636b4eb1dcd3155d5b76c45d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+755dff2f5e1fba2f8be8e74e15dbdff6989e642e")]
 [assembly: System.Reflection.AssemblyProductAttribute("SheepManager.WebAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SheepManager.WebAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

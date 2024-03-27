@@ -8,6 +8,7 @@ namespace SheepManager.Core.Domain.IdentityEntities
 
         public string? PersonName { get; set; }
         public Guid? HerdId { get; set; }
+        public int DataVersion { get; set; }
 
         #endregion
     }

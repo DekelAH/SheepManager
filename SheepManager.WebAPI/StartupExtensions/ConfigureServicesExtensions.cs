@@ -81,7 +81,7 @@ namespace SheepManager.WebAPI.StartupExtensions
                 options.Password.RequireLowercase = true;
                 options.Password.RequireUppercase = true;
                 options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequiredUniqueChars = 4;
+                options.Password.RequiredUniqueChars = 3;
             })
                     .AddEntityFrameworkStores<SheepManagerDbContext>()
                     .AddDefaultTokenProviders()

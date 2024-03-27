@@ -28,12 +28,12 @@ namespace SheepManager.WebAPI.Controllers
         #endregion
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register(RegisterRequest registerRequest)
+        public async Task<ActionResult> Register(RegisterRequest registerRequest)
         {
             if (!ModelState.IsValid)
             {
                 var errors = ModelState.Values.SelectMany(temp => temp.Errors).Select(error => error.ErrorMessage);
-                return Problem(detail: $"Invalid register details: {errors}", statusCode: 401, title: "Register");
+                return Problem(detail: $"Invalid register details: \n{errors}", statusCode: 401, title: "Register");
             }
 
             ApplicationUser user = new()
@@ -47,7 +47,16 @@ namespace SheepManager.WebAPI.Controllers
             if (result.Succeeded)
             {
                 await _signInManager.SignInAsync(user, isPersistent: false);
-                return Ok(user);
+                return Ok(
+                    new
+                    {
+                        userId = user.Id,
+                        personName = user.PersonName,
+                        email = user.Email,
+                        herdId = user.HerdId,
+                        dataVersion = user.DataVersion
+                    }
+                    );
             }
             else
             {
@@ -61,32 +70,41 @@ namespace SheepManager.WebAPI.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login(LoginRequest loginRequest)
+        public async Task<ActionResult> Login(LoginRequest loginRequest)
         {
             if (!ModelState.IsValid)
             {
                 var errors = ModelState.Values.SelectMany(temp => temp.Errors).Select(error => error.ErrorMessage);
-                return Problem(detail: $"Invalid login details: {errors}", statusCode: 401, title: "Login");
+                return Problem(detail: $"Invalid login details: \n{errors}", statusCode: 401, title: "Login");
             }
 
             var result = await _signInManager.PasswordSignInAsync(loginRequest.Email, loginRequest.Password,
                                                                   isPersistent: false, lockoutOnFailure: false);
             if (result.Succeeded)
             {
-                return Ok(true);
-            }
+                ApplicationUser? user = await _userManager.FindByEmailAsync(loginRequest.Email);
+                if (user is null)
+                {
+                    return NoContent();
+                }
 
-            return Problem(detail: $"Invalid login details", statusCode: 401, title: "Login");
+                return Ok(new { personName = user.PersonName, email = user.Email });
+            }
+            else
+            {
+                return Problem(detail: $"Invalid login details", statusCode: 401, title: "Login");
+            }
         }
 
         [HttpGet("logout")]
-        public async Task<IActionResult> Logout()
+        public async Task<ActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
             return Ok(true);
         }
 
-        public async Task<IActionResult> IsEmailAlreadyExist(string email)
+        [HttpGet("is-email-exist")]
+        public async Task<ActionResult> IsEmailExist(string email)
         {
             ApplicationUser? user = await _userManager.FindByEmailAsync(email);
 
@@ -96,7 +114,7 @@ namespace SheepManager.WebAPI.Controllers
             }
             else
             {
-                return BadRequest(false);
+                return Ok(false);
             }
         }
 

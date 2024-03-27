@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using SheepManager.Core.Domain.IdentityEntities;
@@ -86,6 +87,16 @@ namespace SheepManager.WebAPI.StartupExtensions
                     .AddDefaultTokenProviders()
                     .AddUserStore<UserStore<ApplicationUser, ApplicationRole, SheepManagerDbContext,Guid>>()
                     .AddRoleStore<RoleStore<ApplicationRole, SheepManagerDbContext, Guid>>();
+
+            services.AddAuthorization(options =>
+            {
+                options.FallbackPolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+            });
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LogoutPath = "/Account/Login";
+            });
 
             #endregion
 

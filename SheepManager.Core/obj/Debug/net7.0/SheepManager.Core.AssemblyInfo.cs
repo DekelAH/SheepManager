@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SheepManager.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bf977d20f803f77b79eaafb10fe2217d60a4b439")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f862f76b6de8bbe2636b4eb1dcd3155d5b76c45d")]
 [assembly: System.Reflection.AssemblyProductAttribute("SheepManager.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SheepManager.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

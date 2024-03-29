@@ -85,10 +85,10 @@ namespace SheepManager.WebAPI.Controllers
                 ApplicationUser? user = await _userManager.FindByEmailAsync(loginRequest.Email);
                 if (user is null)
                 {
-                    return NoContent();
+                    return BadRequest("User not found");
                 }
 
-                return Ok(new { personName = user.PersonName, email = user.Email });
+                return Ok(new { userId = user.Id, personName = user.PersonName, email = user.Email, herd = user.HerdId, dataVersion = user.DataVersion });
             }
             else
             {
